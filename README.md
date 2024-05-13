@@ -14,3 +14,4 @@ Obsługa żądań HTTP, interakcje z modelem i przekazywanie danych do widoku.
 Widok (views)
 Pliki EJS prezentujące dane użytkownikowi.
 
+Strona jest uruchamiana przy użyciu Express.js i silnika szablonów EJS:
