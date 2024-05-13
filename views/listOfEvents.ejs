@@ -1,0 +1,21 @@
+<!-- views/listOfEvents.ejs -->
+<h1>List of Events</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Event Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% events.forEach(event => { %>
+            <tr>
+                <td><%= event.name %></td>
+                <td><%= event.date %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<a href="/events/add">Add New Event</a>
+<!-- Включите эту строку в <head> каждого .ejs файла -->
+    <link rel="stylesheet" href="/css/styles.css">

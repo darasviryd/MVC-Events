@@ -1,0 +1,18 @@
+<!-- views/addGuestForm.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Guest</title>
+</head>
+<body>
+    <h1>Add Guest</h1>
+    <form action="/events/<%= eventId %>/add-guest" method="post">
+        <input type="text" name="guestName" required placeholder="Guest Name">
+        <input type="email" name="guestEmail" required placeholder="Guest Email">
+        <button type="submit">Add Guest</button>
+    </form>
+</body>
+</html>
+<!-- Включите эту строку в <head> каждого .ejs файла -->
+    <link rel="stylesheet" href="/css/styles.css">

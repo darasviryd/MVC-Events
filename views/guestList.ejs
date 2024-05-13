@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List for Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Guest List for Events</h1>
+
+    <!-- Add New Guest Form -->
+    <h2>Add New Guest</h2>
+    <form action="/guests/add" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="event">Event:</label>
+        <select name="event">
+            <% events.forEach(event => { %>
+                <option value="<%= event.id %>"><%= event.name %></option>
+            <% }) %>
+        </select>
+
+        <button type="submit">Add Guest</button>
+    </form>
+
+    <% events.forEach(event => { %>
+        <h2><%= event.name %> - <%= event.date %></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th> <!-- New column for action -->
+                </tr>
+            </thead>
+            <tbody>
+                <% event.guests.forEach(guest => { %>
+                    <tr>
+                        <td><%= guest.name %></td>
+                        <td><%= guest.email %></td>
+                        <td>
+                            <!-- Form for deleting guest -->
+                            <form action="/guests/delete/<%= guest.id %>" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }) %>
+</body>
+</html>
