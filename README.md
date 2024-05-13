@@ -12,5 +12,5 @@ Kontroler (controllers)
 Obsługa żądań HTTP, interakcje z modelem i przekazywanie danych do widoku.
 
 Widok (views)
-Pliki HTML/EJS prezentujące dane użytkownikowi.
+Pliki EJS prezentujące dane użytkownikowi.
 
