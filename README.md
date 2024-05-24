@@ -33,6 +33,7 @@ First, clone the repository to your local machine using the following command:
 
 git clone 
 (https://github.com/darasviryd/MVC-Events.git)
+
 2. Install Dependencies
 
 Install all required npm packages:
