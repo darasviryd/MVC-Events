@@ -41,8 +41,10 @@ Install all required npm packages:
 
 
 npm install express ejs
+
 Express is the web server framework.
 EJS is the template engine used for rendering HTML.
+
 3. Start the Application
 
 Once the dependencies are installed, you can start the application by running:
