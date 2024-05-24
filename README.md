@@ -31,8 +31,8 @@ Follow these steps to set up and run the project locally:
 First, clone the repository to your local machine using the following command:
 
 
-git clone [
-](https://github.com/darasviryd/MVC-Events.git)
+git clone 
+(https://github.com/darasviryd/MVC-Events.git)
 2. Install Dependencies
 
 Install all required npm packages:
