@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest List for Events</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Guest List for Events</h1>
+        <h2>Add New Guest</h2>
+        <form action="/guests/add" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="event">Event:</label>
+            <select name="event">
+                <% events.forEach(event => { %>
+                    <option value="<%= event.id %>"><%= event.name %></option>
+                <% }) %>
+            </select>
+            <button type="submit">Add Guest</button>
+        </form>
+        <% events.forEach(event => { %>
+            <h2><%= event.name %> - <%= event.date %></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% event.guests.forEach(guest => { %>
+                        <tr>
+                            <td><%= guest.name %></td>
+                            <td><%= guest.email %></td>
+                            <td>
+                                <form action="/guests/delete/<%= guest.id %>" method="post">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% }) %>
+        <a class="back-button" href="/">Back</a>
+    </div>
+</body>
+</html>
